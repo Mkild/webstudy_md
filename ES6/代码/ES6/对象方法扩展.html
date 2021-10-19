@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象方法扩展</title>
+</head>
+<body>
+    <script>
+        // 1. Object.is 判断两个值是否完全相等 
+        Object.is(120, 120); // true 
+        Object.is(NaN, NaN); // true
+        NaN === NaN; // false 
+
+        // 2. Object.assign 对象的合并
+        const config1 = {
+            host: 'localhost',
+            port: 3306,
+            name: 'root',
+            pass: 'root',
+            test: 'test'
+        };
+        const config2 = {
+            host: 'http://atguigu.com',
+            port: 33060,
+            name: 'atguigu.com',
+            pass: 'iloveyou',
+            test2: 'test2'
+        };
+        console.log(Object.assign(config1, config2));
+
+        // 3. Object.setPrototypeOf 设置原型对象  Object.getPrototypeof
+        const son = {
+            name: '尚硅谷'
+        };
+        const father = {
+            xiaoqu: ['北京','上海','深圳']
+        };
+        Object.setPrototypeOf(son, father);
+        Object.getPrototypeOf(son);
+
+        // 4. ES5中，Object.create 创建一个新对象，使用现有的对象来提供新创建的对象的原型
+        // 创建子类时就继承父类
+        const son3 = Object.create(father, {
+            name: {
+                value: '尚硅谷',
+                writable: true,
+                configurable: true,
+                enumerable: true,
+            },
+        })
+
+        function father2(name) {
+            this.name = name;
+        }
+
+        // 先创建，再原型链拼接
+        const son2 = {
+            name: {
+                value: '尚硅谷',
+                writable: true,
+                configurable: true,
+                enumerable: true,
+            },
+        }
+        son2.prototype = Object.create(father2.prototype);
+        son2.prototype.constructor = son2;
+        
+    </script>
+</body>
+</html>
