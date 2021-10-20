@@ -1,4 +1,4 @@
-![](C:\Users\Acer\Downloads\前端\img\浏览器渲染.png)
+![](img/浏览器渲染.png)
 
 
 
