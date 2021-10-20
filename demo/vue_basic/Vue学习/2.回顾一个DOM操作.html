@@ -1,0 +1,43 @@
+<!--
+ * @Author: 黄楚贤
+ * @Date: 2021-07-29 15:18:53
+ * @LastEditors: 黄楚贤
+ * @LastEditTime: 2021-07-29 16:03:34
+ * @Description: 
+ * @FilePath: \vue_basic\Vue学习\2.回顾一个DOM操作.html
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>2.回顾一个DOM操作</title>
+		<style>
+			.demo {
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">点我创建一个输入框</button>
+
+		<script type="text/javascript">
+			const btn = document.getElementById('btn')
+			btn.onclick = () => {
+				const input = document.createElement('input')
+
+				input.className = 'demo'
+				input.value = 99
+				input.onclick = () => {
+					alert(1)
+				}
+
+				document.body.appendChild(input)
+
+				input.focus()
+				// input.parentElement.style.backgroundColor = 'skyblue'
+				console.log(input.parentElement)
+			}
+		</script>
+	</body>
+</html>

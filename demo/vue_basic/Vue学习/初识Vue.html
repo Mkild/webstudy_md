@@ -1,0 +1,69 @@
+<!--
+ * @Author: 黄楚贤
+ * @Date: 2021-07-13 17:52:08
+ * @LastEditors: 黄楚贤
+ * @LastEditTime: 2021-07-14 17:12:08
+ * @Description: 
+ * @FilePath: \vue_basic\01_初识Vue\初识Vue.html
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>初识Vue</title>
+		<!-- 引入Vue.js -->
+		<script type="text/javascript" src="./js/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">{{dd}} {{name}} {{time}}</div>
+		<div class="url">
+			<a :href="url" :id="hello">{{url}}</a><br />
+			<a :href="school.url" :name="school.name">{{school.name}}</a>
+		</div>
+
+		<div id="input">
+			<!-- 普通写法 -->
+			数据单向绑定：<input type="text" v-bind:value="text" /><br />
+			数据双向绑定：<input type="text" v-model:value="text" /><br />
+
+			<hr />
+
+			<!-- 简写 -->
+			数据单向绑定：<input type="text" :value="text" /><br />
+			数据双向绑定：<input type="text" v-model="text" />
+		</div>
+
+		<script type="text/javascript">
+			Vue.config.productionTip = false // 阻止 Vue 在启动时生成生产提示
+			const vue = new Vue({
+				el: '#app',
+				data: {
+					dd: 'Hello World!',
+					name: '黄楚贤',
+					time: new Date(),
+				},
+			})
+
+			new Vue({
+				el: '.url',
+				data: {
+					url: 'https://www.baidu.com',
+					hello: '你好',
+					school: {
+						name: '芜湖大学',
+						url: 'https://www.bilibili.com',
+					},
+				},
+			})
+
+			new Vue({
+				el: '#input',
+				data: {
+					text: '输入内容',
+				},
+			})
+		</script>
+	</body>
+</html>

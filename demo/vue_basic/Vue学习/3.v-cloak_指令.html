@@ -1,0 +1,43 @@
+<!--
+ * @Author: 黄楚贤
+ * @Date: 2021-07-27 16:08:35
+ * @LastEditors: 黄楚贤
+ * @LastEditTime: 2021-07-27 16:30:59
+ * @Description: 
+ * @FilePath: \vue_basic\Vue学习\3.v-cloak_指令.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>3.v-cloak_指令</title>
+		<style>
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+				v-cloak指令（没有值）：
+						1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。
+						2.使用css配合v-cloak可以解决网速慢时页面展示出{{xxx}}的问题。
+		-->
+		<div id="app">
+			<div v-cloak>{{name}}</div>
+		</div>
+        <script src="./js/vue.js"></script>
+
+		<script type="text/javascript">
+			Vue.config.productionTip = false // 阻止 Vue 在启动时生成生产提示
+			const app = new Vue({
+				el: '#app',
+				data: {
+					name: '菊花茶',
+				},
+			})
+		</script>
+	</body>
+</html>

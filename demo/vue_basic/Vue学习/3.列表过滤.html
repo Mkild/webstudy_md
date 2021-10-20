@@ -1,0 +1,78 @@
+<!--
+ * @Author: 黄楚贤
+ * @Date: 2021-07-22 15:53:44
+ * @LastEditors: 黄楚贤
+ * @LastEditTime: 2021-07-22 17:04:33
+ * @Description: 
+ * @FilePath: \vue_basic\Vue学习\3.列表过滤.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="./js/vue.js"></script>
+		<title>列表过滤</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 遍历数组 -->
+			<h2>人员列表</h2>
+			<input placeholder="请输入名字" v-model="keyWord" />
+			<ul>
+				<li v-for="(p, index) in filPersons" :key="p.id">{{p.name}}-{{p.age}}-{{p.sex}}</li>
+			</ul>
+		</div>
+
+		<script type="text/javascript">
+			Vue.config.productionTip = false // 阻止 Vue 在启动时生成生产提示
+
+			// 用watch实现
+			/* const app = new Vue({
+				el: '#app',
+				data: {
+					keyWord: '',
+					persons: [
+						{ id: '001', name: '马冬梅', age: 19, sex: '女' },
+						{ id: '002', name: '周冬雨', age: 20, sex: '女' },
+						{ id: '003', name: '周杰伦', age: 21, sex: '男' },
+						{ id: '004', name: '温兆伦', age: 22, sex: '男' },
+					],
+					filPersons: []
+				},
+				watch: {
+					keyWord: {
+						immediate: true,
+						handler(val) {
+							this.filPersons = this.persons.filter((p) => {
+								return p.name.indexOf(val) !== -1
+							})
+						},
+					},
+				},
+			}) */
+
+			// 用computed实现
+			const app = new Vue({
+				el: '#app',
+				data: {
+					keyWord: '',
+					persons: [
+						{ id: '001', name: '马冬梅', age: 19, sex: '女' },
+						{ id: '002', name: '周冬雨', age: 20, sex: '女' },
+						{ id: '003', name: '周杰伦', age: 21, sex: '男' },
+						{ id: '004', name: '温兆伦', age: 22, sex: '男' },
+					],
+				},
+				computed: {
+					filPersons() {
+						return this.persons.filter((p) => {
+							return p.name.indexOf(this.keyWord) !== -1
+						})
+					},
+				},
+			})
+		</script>
+	</body>
+</html>
