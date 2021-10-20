@@ -2118,7 +2118,7 @@ this.$nextTick(function() {
 
 1. 作用：在插入、更新或移除 DOM元素时，在合适的时候给元素添加样式类名。
 
-2. 图示：![](../../../Pictures/Saved Pictures/transition.png)
+2. 图示：![](../img/transition.png)
 
 3. 写法：
 
@@ -2869,7 +2869,7 @@ module.exports = {
 
 路由守卫执行顺序：
 
-<img src="../../../Pictures/Saved Pictures/route.png"  />
+![](../img/route.png)
 
 ### 13.路由器的两种工作模式
 

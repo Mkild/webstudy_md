@@ -3,7 +3,7 @@
 [webpack中文文档]: https://webpack.docschina.org/concepts/
 [深入浅出Webpack]: http://webpack.wuhaolin.cn/
 
-![](../../../Pictures/Saved Pictures/webpack.png)
+![](../img/webpack.png)
 
 ## webpack的5个核心概念
 
